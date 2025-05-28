@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explorador</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="shortcut icon" href="assets/images/Logo01.png" type="image/x-icon">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/images/Logo02.png" alt="" srcset="" width="50%">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <form class="d-flex" role="search">
+          <input id="filtrar" class="form-control me-2" type="text" placeholder="Títulos, Gênero, Atores..." aria-label="Search">
+          <button id="procurar" onclick="buscarFilmes(document.getElementById('filtrar').value)" class="btn" type="button">Buscar</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid explorador">
+    <div class="row">
+
+      <div class="col-lg-3">
+        <div class="filtros">
+          <h4 class="text-center">Filtros de Pesquisa</h4>
+          
+          <div class="opcoes-filtros">
+            <h6>Gêneros:</h6>
+            <hr>
+        
+            <input type="checkbox" name="acao" id="acao">
+            <label for="acao">Ação</label><br>
+        
+            <input type="checkbox" name="aventura" id="aventura">
+            <label for="aventura">Aventura</label><br>
+        
+            <input type="checkbox" name="comedia" id="comedia">
+            <label for="comedia">Comédia</label><br>
+        
+            <input type="checkbox" name="drama" id="drama">
+            <label for="drama">Drama</label><br>
+        
+            <input type="checkbox" name="ficcao_cientifica" id="ficcao_cientifica">
+            <label for="ficcao_cientifica">Ficção Científica</label><br>
+        
+            <input type="checkbox" name="fantasia" id="fantasia">
+            <label for="fantasia">Fantasia</label><br>
+        
+            <input type="checkbox" name="terror" id="terror">
+            <label for="terror">Terror</label><br>
+        
+            <input type="checkbox" name="romance" id="romance">
+            <label for="romance">Romance</label><br>
+        
+            <input type="checkbox" name="musical" id="musical">
+            <label for="musical">Musical</label><br>
+        
+            <input type="checkbox" name="documentario" id="documentario">
+            <label for="documentario">Documentário</label><br>
+        
+            <input type="checkbox" name="super_heroi" id="super_heroi">
+            <label for="super_heroi">Super-herói</label><br>
+        
+            <input type="checkbox" name="policial" id="policial">
+            <label for="policial">Policial</label><br>
+        
+            <input type="checkbox" name="guerra" id="guerra">
+            <label for="guerra">Guerra</label><br>
+        
+            <input type="checkbox" name="esporte" id="esporte">
+            <label for="esporte">Esporte</label><br>
+        
+            <input type="checkbox" name="animacao" id="animacao">
+            <label for="animacao">Animação</label><br>
+        
+            <input type="checkbox" name="comedia_romantica" id="comedia_romantica">
+            <label for="comedia_romantica">Comédia Romântica</label><br>
+        
+            <input type="checkbox" name="comedia_de_acao" id="comedia_de_acao">
+            <label for="comedia_de_acao">Comédia de Ação</label><br>
+        
+            <input type="checkbox" name="comedia_de_terror" id="comedia_de_terror">
+            <label for="comedia_de_terror">Comédia de Terror</label><br>
+        
+            <input type="checkbox" name="comedia_dramatica" id="comedia_dramatica">
+            <label for="comedia_dramatica">Comédia Dramática</label><br>
+        
+            <input type="checkbox" name="docuficcao" id="docuficcao">
+            <label for="docuficcao">Docuficção</label><br>
+        
+            <input type="checkbox" name="docudrama" id="docudrama">
+            <label for="docudrama">Dorama</label><br>
+            <br>
+        
+            <h6>Plataformas:</h6>
+            <hr>
+        
+            <input type="radio" name="plataforma" id="netflix" value="netflix">
+            <label for="netflix">Netflix</label><br>
+        
+            <input type="radio" name="plataforma" id="disney_plus" value="disney_plus">
+            <label for="disney_plus">Disney+</label><br>
+        
+            <input type="radio" name="plataforma" id="hbo_max" value="hbo_max">
+            <label for="hbo_max">HBO Max</label><br>
+        
+            <input type="radio" name="plataforma" id="amazon_prime_video" value="amazon_prime_video">
+            <label for="amazon_prime_video">Amazon Prime Video</label><br>
+        
+            <input type="radio" name="plataforma" id="star_plus" value="star_plus">
+            <label for="star_plus">Star+</label><br>
+        
+            <input type="radio" name="plataforma" id="paramount_plus" value="paramount_plus">
+            <label for="paramount_plus">Paramount+</label><br>
+        
+            <input type="radio" name="plataforma" id="apple_tv_plus" value="apple_tv_plus">
+            <label for="apple_tv_plus">Apple TV+</label><br>
+        
+            <input type="radio" name="plataforma" id="globoplay" value="globoplay">
+            <label for="globoplay">Globoplay</label><br>
+            <br>
+
+            <h6>Ano de Lançamento:</h6>
+            <hr>
+
+            <div class="anos">
+              <input id="anoRange" name="ano" type="range" min="1950" max="2025" value="2000" oninput="atualizaAno()"> <br>
+              <label for="ano">Ano Selecionado: <span id="ValorAno">2000</span></label>
+            </div>
+        
+        </div>
+        
+
+
+          <button type="button" class="filtrar" onclick="Swal.fire({
+            icon: 'error',
+            title: 'Algo deu errado!',
+            text: 'Alguma coisa falhou, não foi possível filtrar'
+          });">Filtrar</button>
+        </div>
+
+      </div>
+
+      <div id="explorar-filtros" class="row col justify-content-evenly">
+        
+        <div class="card" style="width: 15rem;" aria-hidden="true">
+          <img src="https://fakeimg.pl/270x400?text=+" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title placeholder-glow">
+              <span class="placeholder col-8"></span>
+              <span class="placeholder col-6"></span>
+              <span class="placeholder col-5"></span>
+              <span class="placeholder col-7"></span>
+            </h5>
+          </div>
+        </div>
+        
+        <div class="card" style="width: 15rem;" aria-hidden="true">
+          <img src="https://fakeimg.pl/270x400?text=+" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title placeholder-glow">
+              <span class="placeholder col-8"></span>
+              <span class="placeholder col-6"></span>
+              <span class="placeholder col-5"></span>
+              <span class="placeholder col-7"></span>
+            </h5>
+          </div>
+        </div>
+
+        <div class="card" style="width: 15rem;" aria-hidden="true">
+          <img src="https://fakeimg.pl/270x400?text=+" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title placeholder-glow">
+              <span class="placeholder col-8"></span>
+              <span class="placeholder col-6"></span>
+              <span class="placeholder col-5"></span>
+              <span class="placeholder col-7"></span>
+            </h5>
+          </div>
+        </div>
+
+        <div class="card" style="width: 15rem;" aria-hidden="true">
+          <img src="https://fakeimg.pl/270x400?text=+" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title placeholder-glow">
+              <span class="placeholder col-8"></span>
+              <span class="placeholder col-6"></span>
+              <span class="placeholder col-5"></span>
+              <span class="placeholder col-7"></span>
+            </h5>
+          </div>
+        </div>
+
+        <div class="card" style="width: 15rem;" aria-hidden="true">
+          <img src="https://fakeimg.pl/270x400?text=+" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title placeholder-glow">
+              <span class="placeholder col-8"></span>
+              <span class="placeholder col-6"></span>
+              <span class="placeholder col-5"></span>
+              <span class="placeholder col-7"></span>
+            </h5>
+          </div>
+        </div>
+
+        <div class="card" style="width: 15rem;" aria-hidden="true">
+          <img src="https://fakeimg.pl/270x400?text=+" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title placeholder-glow">
+              <span class="placeholder col-8"></span>
+              <span class="placeholder col-6"></span>
+              <span class="placeholder col-5"></span>
+              <span class="placeholder col-7"></span>
+            </h5>
+          </div>
+        </div>
+        
+        <div class="card" style="width: 15rem;" aria-hidden="true">
+          <img src="https://fakeimg.pl/270x400?text=+" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title placeholder-glow">
+              <span class="placeholder col-8"></span>
+              <span class="placeholder col-6"></span>
+              <span class="placeholder col-5"></span>
+              <span class="placeholder col-7"></span>
+            </h5>
+          </div>
+        </div>
+
+        <div class="card" style="width: 15rem;" aria-hidden="true">
+          <img src="https://fakeimg.pl/270x400?text=+" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title placeholder-glow">
+              <span class="placeholder col-8"></span>
+              <span class="placeholder col-6"></span>
+              <span class="placeholder col-5"></span>
+              <span class="placeholder col-7"></span>
+            </h5>
+          </div>
+        </div>
+
+        <div class="card" style="width: 15rem;" aria-hidden="true">
+          <img src="https://fakeimg.pl/270x400?text=+" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title placeholder-glow">
+              <span class="placeholder col-8"></span>
+              <span class="placeholder col-6"></span>
+              <span class="placeholder col-5"></span>
+              <span class="placeholder col-7"></span>
+            </h5>
+          </div>
+        </div>
+
+        <div class="card" style="width: 15rem;" aria-hidden="true">
+          <img src="https://fakeimg.pl/270x400?text=+" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title placeholder-glow">
+              <span class="placeholder col-8"></span>
+              <span class="placeholder col-6"></span>
+              <span class="placeholder col-5"></span>
+              <span class="placeholder col-7"></span>
+            </h5>
+          </div>
+        </div>
+
+
+      </div>
+      
+      <div id="botoes" class="row botoes justify-content-between">
+        <button class="btn anterior" onclick="catalogoExplorar()" type="button">Anterior</button>
+        <button class="btn proximo" onclick="catalogoExplorarPagina2()" type="button">Próximo</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="assets/scripts/explorador.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
